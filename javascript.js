@@ -7,35 +7,70 @@
 //write the logic to play a single round
 
 
-const rock = 0;
-const paper = 1;
-const scissors = 2;
-
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3 );
-        if (randomNumber === 0) {
+    switch (randomNumber) {
+        case 0:
             return "rock";
-        } else if (randomNumber === 1) {
+        case 1:
             return "paper";
-        } else {
+        case 2:
             return "scissors";
-        }
+    }
 }
 
-console.log("Bill chose: ", getComputerChoice())
-
-function getHumanChoice() {
-    const humanChoice = prompt("Rock, paper or scissors?");
-    return humanChoice.ignoreCase();
+function getHumanChoice(str) {
+    let humanChoice = prompt("Rock, paper or scissors?");
+    return humanChoice.toLowerCase();
     }
-const humanChoice = getHumanChoice();
-    
-console.log("You chose: ", humanChoice);
 
-const humanScore = 0;
-const computerScore = 0;
+const computerChoice = getComputerChoice
+const humanChoice = getHumanChoice();
+ 
+alert("You chose: " + humanChoice);
+alert("Bill chose: " + getComputerChoice());
+
+
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    const computerChoice = getComputerChoice()
-    if ()
+    if ((humanChoice === "rock") && (computerChoice === "paper")) {
+        computerScore++;
+        alert("You lose! Womp womp :(");
+    }
+    else if ((humanChoice === "paper") && (computerChoice === "scissors")) {
+        computerScore++;
+        alert("You lose! Womp womp :(");
+    }
+    else if ((humanChoice === "scissors") && (computerChoice === "rock")) {
+        computerScore++;
+        alert("You lose! Womp womp :(");
+    }
+    else if ((humanChoice === "rock") && (computerChoice === "scissors")) {
+        humanScore++;
+        alert("You win! Yippie C:");
+    }
+    else if ((humanChoice === "paper") && (computerChoice === "rock")) {
+        humanScore++;
+        alert("You win! Yippie C:");
+    }
+    else if ((humanChoice === "scissors") && (computerChoice === "paper")) {
+        humanScore++;
+        alert("You win! Yippie C:");
+    }
+    else {
+        (humanChoice === computerChoice)
+        alert("It's a tie :/");
+    }
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+
+    function playGame() {
+
+    }
 }
+
