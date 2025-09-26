@@ -1,11 +1,3 @@
-// Get computer choice
-// Pick random Number with math.random
-// Assign each number to either rock paper or scissors
-// Get the human choice - use prompt
-// New funtion that takes the user choice and runs it through the r/p/s function
-// Keep score of the wins by creating 2 new score variables
-//write the logic to play a single round
-
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3 );
@@ -81,7 +73,7 @@ function playGame() {
         alert("It's a tie :/");
     } 
     else {
-        alert("You lose! Loser bozo xd");
+        alert("You lose! Loser nerd xd");
     } 
     
      }
