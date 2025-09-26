@@ -19,58 +19,72 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice(str) {
+function getHumanChoice() {
     let humanChoice = prompt("Rock, paper or scissors?");
-    return humanChoice.toLowerCase();
+        return humanChoice.toLowerCase();
     }
-
-const computerChoice = getComputerChoice
-const humanChoice = getHumanChoice();
- 
-alert("You chose: " + humanChoice);
-alert("Bill chose: " + getComputerChoice());
-
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    if ((humanChoice === "rock") && (computerChoice === "paper")) {
+    alert("You chose: " + humanChoice);
+    alert("Bill chose: " + computerChoice);
+
+    if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++;
         alert("You lose! Womp womp :(");
     }
-    else if ((humanChoice === "paper") && (computerChoice === "scissors")) {
+    else if (humanChoice === "paper" && computerChoice === "scissors") {
         computerScore++;
         alert("You lose! Womp womp :(");
     }
-    else if ((humanChoice === "scissors") && (computerChoice === "rock")) {
+    else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++;
         alert("You lose! Womp womp :(");
     }
-    else if ((humanChoice === "rock") && (computerChoice === "scissors")) {
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++;
         alert("You win! Yippie C:");
     }
-    else if ((humanChoice === "paper") && (computerChoice === "rock")) {
+    else if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++;
         alert("You win! Yippie C:");
     }
-    else if ((humanChoice === "scissors") && (computerChoice === "paper")) {
+    else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
         alert("You win! Yippie C:");
     }
-    else {
-        (humanChoice === computerChoice)
+    else if (humanChoice === computerChoice) {
+        humanScore++; 
+        computerScore++;
         alert("It's a tie :/");
     }
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-    function playGame() {
-
-    }
 }
+
+
+function playGame() {
+
+    for(i = 1; i < 5; i++){
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice(); 
+           
+        playRound(humanSelection, computerSelection);
+    }
+
+    alert("Your score is: " + humanScore + ". Bill's score is: " + computerScore);
+
+    if (humanScore > computerScore) {
+        alert("You win! Get fucked Bill >:)");
+    } else if (humanScore == computerScore) {
+        alert("It's a tie :/");
+    } 
+    else {
+        alert("You lose! Loser bozo xd");
+    } 
+    
+     }
+
+    playGame();
 
