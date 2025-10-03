@@ -3,12 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, paper, scissors</title>
     <link rel="stylesheet" href="styles.css">
     <script src = "javascript.js"></script>
 </head>
-
 <body>
-    
+    <div class="heading">
+        <h1 class="rock">Rock</h1>
+        <h1 class="paper">Paper</h1>
+        <h1 class="scissors">Scissors</h1>
+    </div>
+    <div class="mainContainer">
+        <div class="screen">
+            <div class="score">
+                <h2 class="scoreTitle">Score
+                    <div class="playerScore"></div>
+                    <div class="divider"></div>
+                    <div class="computerScore"></div>
+                </h2>
+            </div>
+            <div class="choices">
+                <div class="playerChoice">
+                    <div class="playerChoiceImage"></div>
+                    <p class="player">Player</p>
+                </div>
+                <div class="computerChoice">
+                    <div class="computerChoiceImage">
+                        <p class="computer">Computer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="options">
+            <div class="rockImage">
+                <button class="rockBtn">Rock</button>
+            </div>
+            <div class="paperImage">
+                <button class="paperBtn">Paper</button>
+            </div>
+            <div class="scissorsImage">
+                <button class="scissorsBtn">Scissors</button>
+            </div>
+        </div>
+        <button class="playGame">Play</button>
+    </div>
 </body>
 </html>

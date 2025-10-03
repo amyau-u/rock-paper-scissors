@@ -1,4 +1,4 @@
-
+//---------------- COMPUTER CHOICE ---------------------
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3 );
     switch (randomNumber) {
@@ -10,18 +10,29 @@ function getComputerChoice() {
             return "scissors";
     }
 }
+//---------------- SELECTION FUNCTIONS ---------------------
+const showPlayerChoice = document.querySelector(".playerChoiceImage");
+const showCompChoice = document.querySelector(".computerChoiceImage");
+
+function showPlayerSelection(choice) {
+    while (showPlayerChoice.firstChild) {
+        showPlayerChoice.removeChild(showPlayerChoice.firstChild);
+    }
+
+    const playerImage = document.createElement(".playerChoiceImage");
+    playerImage.alt = choice;
+    playerImage.src = 
+}
 
 function getHumanChoice() {
-    let humanChoice = prompt("Rock, paper or scissors?");
-        return humanChoice.toLowerCase();
-    }
+
+
+}
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    alert("You chose: " + humanChoice);
-    alert("Bill chose: " + computerChoice);
 
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++;
@@ -55,28 +66,28 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
+// function playGame() {
 
-    for(i = 1; i < 5; i++){
+//     for(i = 1; i < 5; i++){
 
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice(); 
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice(); 
            
-        playRound(humanSelection, computerSelection);
-    }
+//         playRound(humanSelection, computerSelection);
+//     }
 
-    alert("Your score is: " + humanScore + ". Bill's score is: " + computerScore);
+//     alert("Your score is: " + humanScore + ". Bill's score is: " + computerScore);
 
-    if (humanScore > computerScore) {
-        alert("You win! Get fucked Bill >:)");
-    } else if (humanScore == computerScore) {
-        alert("It's a tie :/");
-    } 
-    else {
-        alert("You lose! Loser nerd xd");
-    } 
+//     if (humanScore > computerScore) {
+//         alert("You win! Get fucked Bill >:)");
+//     } else if (humanScore == computerScore) {
+//         alert("It's a tie :/");
+//     } 
+//     else {
+//         alert("You lose! Loser nerd xd");
+//     } 
     
-     }
+//      }
 
-    playGame();
+//     playGame();
 
