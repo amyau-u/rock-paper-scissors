@@ -9,12 +9,14 @@ const rockBtn = document.querySelector(".rockBtn");
 const paperBtn = document.querySelector(".paperBtn");
 const scissorsBtn = document.querySelector(".scissorsBtn");
 
-// Get Player Choice
+// Show Choice Images
 
 const playerImage = document.createElement("img");
+    playerImage.classList.add("playerImage")
     showPlayerChoice.appendChild(playerImage);
 
 const computerImage = document.createElement("img");
+    computerImage.classList.add("computerImage")
     showCompChoice.appendChild(computerImage);
 
 function showSelection(playerChoice, computerChoice) {
