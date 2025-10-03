@@ -1,69 +1,87 @@
-//---------------- COMPUTER CHOICE ---------------------
-function getComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3 );
-    switch (randomNumber) {
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
-    }
-}
-//---------------- SELECTION FUNCTIONS ---------------------
+//---------------- CHOICES ---------------------
+const choices = ["rock", "paper", "scissors"];
 const showPlayerChoice = document.querySelector(".playerChoiceImage");
 const showCompChoice = document.querySelector(".computerChoiceImage");
 
-function showPlayerSelection(choice) {
-    while (showPlayerChoice.firstChild) {
-        showPlayerChoice.removeChild(showPlayerChoice.firstChild);
-    }
+// Choice Buttons
 
-    const playerImage = document.createElement(".playerChoiceImage");
-    playerImage.alt = choice;
-    playerImage.src = 
-}
+const rockBtn = document.querySelector(".rockBtn");
+const paperBtn = document.querySelector(".paperBtn");
+const scissorsBtn = document.querySelector(".scissorsBtn");
 
-function getHumanChoice() {
+// Get Player Choice
 
+const playerImage = document.createElement("img");
+    showPlayerChoice.appendChild(playerImage);
 
-}
+const computerImage = document.createElement("img");
+    showCompChoice.appendChild(computerImage);
+
+function showSelection(playerChoice, computerChoice) {
+    playerImage.src = `assets/${playerChoice}.png`;
+    playerImage.alt = playerChoice;    
+
+    computerImage.src = `assets/${computerChoice}.png`;
+    computerImage.alt = computerChoice; 
+};
+
+//------------------- SCORE START ---------------------------------
 
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
+//------------------- COMPUTER CHOICE ------------------------------
 
-    if (humanChoice === "rock" && computerChoice === "paper") {
-        computerScore++;
-        alert("You lose! Womp womp :(");
-    }
-    else if (humanChoice === "paper" && computerChoice === "scissors") {
-        computerScore++;
-        alert("You lose! Womp womp :(");
-    }
-    else if (humanChoice === "scissors" && computerChoice === "rock") {
-        computerScore++;
-        alert("You lose! Womp womp :(");
-    }
-    else if (humanChoice === "rock" && computerChoice === "scissors") {
-        humanScore++;
-        alert("You win! Yippie C:");
-    }
-    else if (humanChoice === "paper" && computerChoice === "rock") {
-        humanScore++;
-        alert("You win! Yippie C:");
-    }
-    else if (humanChoice === "scissors" && computerChoice === "paper") {
-        humanScore++;
-        alert("You win! Yippie C:");
-    }
-    else if (humanChoice === computerChoice) {
-        humanScore++; 
-        computerScore++;
-        alert("It's a tie :/");
-    }
+function getComputerChoice() {
+    const randomNumber = Math.floor(Math.random() * 3 );
+    return choices[randomNumber];
 }
+
+//--------------------- UPDATE SCORES -------------------------------
+
+function updateScore() {
+    document.querySelector(".playerScore")
+        .textContent = humanScore;
+    document.querySelector(".computerScore")
+        .textContent = computerScore;
+};
+
+//----------------- PLAY ROUND -----------------------------
+
+function playRound(playerChoice) {
+    const computerChoice = getComputerChoice();
+    let resultText = "";
+
+    showSelection(playerChoice, computerChoice);
+    if (playerChoice === computerChoice) {
+        humanScore++;
+        computerScore++;
+        resultText = "It's a tie :/";
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") || 
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        humanScore++;
+         resultText = "You win! Yippie C:";
+    } else {
+        computerScore++;
+        resultText = "You lose! Womp womp :("
+    }
+    
+    updateScore();
+
+    document.querySelector(".outcome").textContent = resultText;
+}
+
+//--------------------EVENT LISTENERS-----------------------
+
+document.querySelector(".rockBtn")
+    .addEventListener ("click", () => playRound("rock"));
+document.querySelector(".paperBtn")
+    .addEventListener ("click", () => playRound("paper"));
+document.querySelector(".scissorsBtn")
+    .addEventListener ("click", () => playRound("scissors"));
 
 
 // function playGame() {
