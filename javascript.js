@@ -42,10 +42,18 @@ function getComputerChoice() {
 //--------------------- UPDATE SCORES -------------------------------
 
 function updateScore() {
-    document.querySelector(".playerScore")
-        .textContent = humanScore;
-    document.querySelector(".computerScore")
-        .textContent = computerScore;
+    const playerScoreDiv = document.querySelector(".playerScore");
+    const computerScoreDiv = document.querySelector(".computerScore");
+    const playerName = document.querySelector(".playerName");
+    const computerName = document.querySelector(".computerName");
+
+    playerScoreDiv.textContent = humanScore;
+    computerScoreDiv.textContent = computerScore;
+
+    playerScoreDiv.style.visibility = "visible";
+    computerScoreDiv.style.visibility = "visible";
+    playerName.style.visibility = "visible";
+    computerName.style.visibility = "visible";
 };
 
 //----------------- PLAY ROUND -----------------------------
