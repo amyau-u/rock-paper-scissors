@@ -64,8 +64,6 @@ function playRound(playerChoice) {
 
     showSelection(playerChoice, computerChoice);
     if (playerChoice === computerChoice) {
-        humanScore++;
-        computerScore++;
         resultText = "It's a tie :/";
     } else if (
         (playerChoice === "rock" && computerChoice === "scissors") ||
